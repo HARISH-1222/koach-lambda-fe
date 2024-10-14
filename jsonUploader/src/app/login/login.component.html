@@ -1,0 +1,33 @@
+<div class="login-parent-container">
+  <div class="login-container">
+    <form (ngSubmit)="login()" class="login-form">
+      <h2 style="text-align: center">Login</h2>
+      <div class="flexBetween">
+        <label>Username:</label>
+        <input type="text" [(ngModel)]="username" name="username" required />
+      </div>
+      <div class="flexBetween">
+        <label>Password:</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <div class="error">{{ errorMessage }}</div>
+      <div class="flex">
+        <button type="submit" (click)="login()">Login</button>
+        <button
+          type="button"
+          class="si"
+          style="margin-right: 1.2rem"
+          (click)="redirectToRegister()"
+        >
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

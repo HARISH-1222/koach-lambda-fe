@@ -1,0 +1,15 @@
+<form (ngSubmit)="login()">
+  <label>Username:</label>
+  <input type="text" [(ngModel)]="username" name="username" required />
+  
+  <label>Password:</label>
+  <input type="password" [(ngModel)]="password" name="password" required />
+  
+  <div>
+    <div class="error">{{ errorMessage }}</div>
+    <button type="submit" (click)="login()">Login</button>
+
+    <button type="button" (click)="redirectToRegister()">Register</button>
+  </div>
+
+</form>

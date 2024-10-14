@@ -1,0 +1,54 @@
+<div class="register-parent-container">
+  <div class="register-container">
+    <form (ngSubmit)="register()" #registerForm="ngForm" class="register-form">
+      <h2 style="text-align: center">Register</h2>
+      <div class="flexBetween">
+        <label>Username:</label>
+        <input type="text" [(ngModel)]="username" name="username" required />
+      </div>
+      <div class="flexBetween">
+        <label>Password:</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <div class="flexBetween">
+        <label>Confirm Password:</label>
+        <input
+          type="password"
+          [(ngModel)]="confirmPassword"
+          name="confirmPassword"
+          required
+        />
+        <div
+          *ngIf="password !== confirmPassword && confirmPassword"
+          class="error"
+        >
+          Passwords do not match!
+        </div>
+      </div>
+      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+      <div class="flex">
+        <button
+          type="submit"
+          [disabled]="password !== confirmPassword || loader"
+        >
+          Register
+          <span class="loader" *ngIf="loader"></span>
+        </button>
+        <button
+          type="button"
+          (click)="redirectToLogin()"
+          style="margin-right: 1.2rem"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

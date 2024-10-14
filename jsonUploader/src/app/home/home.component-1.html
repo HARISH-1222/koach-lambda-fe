@@ -1,0 +1,43 @@
+<div>
+  <button (click)="logout()">Logout</button>
+</div>
+<div style="display: flex; height: 100vh;">
+  <!-- Left Side: Textarea and Upload Button -->
+  <div style="flex: 1; padding: 20px; border-right: 1px solid #ddd;">
+    <h3>Upload JSON</h3>
+    
+    <!-- Error Message -->
+    <h3 *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</h3>
+
+    <textarea 
+      [(ngModel)]="jsonData" 
+      rows="10" 
+      style="width: 100%; margin-bottom: 10px;"
+      placeholder="Enter or paste JSON data here">
+    </textarea>
+    <button (click)="uploadJson()" style="width: 100%;">Upload</button>
+  </div>
+
+  <!-- Right Side: List of Cards -->
+  <div style="flex: 2; padding: 20px;">
+    <h4>Data List</h4>
+    <div *ngFor="let item of dataList; let i = index" 
+         class="card mb-3" 
+         (click)="selectData(item)" 
+         style="cursor: pointer;">
+      <div class="card-body">
+        <h5 class="card-title">Data - {{ i + 1 }}</h5> <!-- Card title -->
+      </div>
+    </div>
+
+    <!-- Display Selected Data -->
+    <div *ngIf="selectedData" class="mt-4">
+      <h4>Selected Data</h4>
+      <div class="card">
+        <div class="card-body">
+          <pre>{{ selectedData | json }}</pre> <!-- Display the selected JSON object -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+.card {
+    border: 1px solid #e8e8e8; /* Bootstrap primary color */
+    transition: transform 0.2s;
+  }
+  
+.card-body{
+    padding: 10px;
+}
+
+  .card:hover {
+    border: 1px solid #a9a9a9; /* Bootstrap primary color */
+    transform: scale(1.02); /* Slight zoom effect on hover */
+  }
+  
+  .selected-data {
+    margin-top: 20px;
+  }
+  
